@@ -1,0 +1,6 @@
+xaringan::inf_mr() 
+xaringan::summon_remark()
+chakra: libs/remark-latest.min.js
+names(xaringan:::list_css())
+css: [default, metropolis, metropolis-fonts]
+devtools::install_github("libjohn/dukeslides")

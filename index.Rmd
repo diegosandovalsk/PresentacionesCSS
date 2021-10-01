@@ -1,0 +1,453 @@
+---
+title: "Presentación Guía - Xaringan"
+subtitle: ""
+author:
+- Diego Sandoval Skinner
+date: "(actualizado: `r format(Sys.time(), '%d %B %Y')`)"
+institute: "Universidad Nacional de Colombia"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [default, default-fonts, estilos/ejemplos.css]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+class: inverse, center, middle
+
+# Ejemplos CSS
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+---
+
+class: center, middle
+
+# Hoja de estilos CSS
+
+Para habilitar las modificaciones de diapositivas, debe especificar un archivo `.css` personalizado en el encabezado YAML del documento `.Rmd`.
+
+---
+
+layout: true
+
+# Hoja de estilos CSS
+Puede copiar el archivo CSS por defecto de xaringan: `default.css` y construirlo a su manera, o decidir solo cambiar un pequeño subconjunto de las reglas CSS basadas en este archivo.
+
+---
+
+.center[**Opción 1**]
+
+En el primer caso, puede completamente sobreescribir la opción `css:` de `moon_reader()`.
+
+``` {yaml eval = FALSE, tidy = FALSE}
+---
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["estilos/ejemplos.css"]
+---
+
+```
+---
+
+.center[**Opción 2**]
+
+En el segundo caso, puede añadir su archivo CSS después de `default`. De esta manera seguirá usando todas las reglas de estilo por defecto de Xaringan, más las nuevas que usted haya definido o modificado en su archivo `.css`.
+
+``` {yaml eval = FALSE, tidy = FALSE}
+---
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["default", "default-fonts", "estilos/ejemplos.css"]
+---
+
+```
+---
+layout: false
+
+# Hoja de estilos CSS
+
+Asegúrese de insertar la ruta relativa al archivo si no está ubicado en el mismo directorio que su archivo `.Rmd`.
+
+``` {yaml eval = FALSE, tidy = FALSE}
+---
+title: "Presentación Guía - Xaringan"
+author: Nombre autor
+date: "dd/mm/aa"
+institute: Nombre Institución
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [default, default-fonts, estilos/ejemplos.css]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+```
+---
+
+class: center, middle
+
+#Fuentes del texto
+
+---
+# Fuentes del texto
+
+**Código:**
+
+El archivo `default-fonts.css` viene con varias fuentes predefinidas para escribir código:
+
+``` {css eval = FALSE, tidy = FALSE}
+.remark-code, .remark-inline-code { font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace; }
+```
+**Cuerpo:**
+
+Algunas otras para texto normal:
+
+``` {css eval = FALSE, tidy = FALSE}
+body { font-family: 'Droid Serif', 'Palatino Linotype', 'Book Antiqua', Palatino, 'Microsoft YaHei', 'Songti SC', serif; }
+```
+---
+# Fuentes del texto
+
+**Títulos**
+
+Para los encabezados unicamente viene especificado `Yanone Kaffeesatz`. Fuente que viene importada desde Google Fonts.
+
+``` {css eval = FALSE, tidy = FALSE}
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+
+h1, h2, h3 {
+  font-family: 'Yanone Kaffeesatz';
+  font-weight: normal;
+}
+```
+---
+
+class: center, middle
+
+#Cambiar las fuentes del texto
+
+---
+#Cambiar las fuentes del texto
+
+Si desea cambiar, por ejemplo, la fuente del código a "Ubunto Mono", basta con buscar dicha fuente en Google fonts, importarla y definirla en la línea de código adecuada:
+
+```{css eval = FALSE, tidy = FALSE}
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+.remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+```
+---
+#Cambiar las fuentes del texto
+
+O cambiar la fuente de los encabezados y el cuerpo:
+
+```{css eval = FALSE, tidy = FALSE}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&family=Roboto:wght@300&display=swap');
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: normal;
+}
+
+body {
+  font-family: 'Roboto', 'Droid Serif', 'Palatino Linotype', 'Book Antiqua', Palatino, 'Microsoft YaHei', 'Songti SC', serif;
+}
+
+```
+
+No es necesario eliminar las fuentes que vienen predefinidas, si la primera fuente que se especifique no llegase a funcionar, las siguientes fuentes especificadas funcionaran como respaldo.
+---
+class: center, middle
+
+# Cambiar el tamaño de las fuentes del texto
+
+---
+
+# Cambiar el tamaño de las fuentes del texto
+
+Puede cambiar el tamaño de la fuente de un bloque de texto o de toda una diapositiva definiendo nuevas clases en el archivo `.css`.
+
+**Ejemplo**
+
+```{css eval = FALSE, tidy = FALSE}
+
+.large { font-size: 130% }
+.small { font-size: 70% }
+
+```
+
+Las clases cambiarán el tamaño de la fuente con respecto al tamaño por defecto.
+
+---
+
+# Cambiar el tamaño de las fuentes del texto
+
+Para hacer uso de estas clases basta con encerrar el texto que desea editar de la siguiente manera:
+
+`.small[el texto es más pequeño, ] .large[el texto es más grande]`
+
+.center[.small[el texto es más pequeño,] .large[ el texto es más grande]]
+
+Por supuesto, puede cambiar los porcentajes de este ejemplo según su necesidad o definir más clases personalizadas con otros valores como `.tiny {font-size: 40%}`.
+
+---
+class: center, middle
+
+# Definir colores del texto
+
+---
+# Definir colores del texto
+
+Puede definir clases de colores de texto para luego aplicarlos sobre trozos de contenido dentro de las diapositivas. 
+
+Por ejemplo, si desea hacer que el texto se vea rojo, debería definir algo así en su archivo CSS:
+
+```{css eval = FALSE, tidy = FALSE}
+
+.red { color: red; } /* o .red { color: #ff0000; }*/
+
+```
+
+Y luego, asignar esta propiedad encerrando el texto objetivo en medio de corchetes cuadrados `.red[Texto en rojo]`.
+
+.center[.red[Texto en rojo]]
+---
+class: center, middle
+
+# Diapositiva de título
+
+En ocasiones puede querer definir un estilo diferente para la diapositiva de título. Para realizar cambios sobre esta diapositiva debe manipular la clase `.title-slide`. Todos los cambios aplicados a esta clase afectarán unicamente dicha diapositiva.
+---
+# Diapositiva de título
+
+## Imagen de fondo
+
+Para cambiar la imagen de fondo de la diapositiva de título puede insertar las siguientes lineas en su archivo `.css`.
+
+```{css eval = FALSE, tidy = FALSE}
+
+.title-slide {
+  background-image: url(https://sitioweb.com/imagen.jpg);
+  background-size: cover;
+}
+
+```
+
+Los valores posibles para `background-size` son los mismos abordados en el capitulo de propiedades de las diapositivas.
+
+---
+# Diapositiva de título
+
+## Color y espaciado de los encabezados
+
+También puede cambiar la apariencia de solo los encabezados de la diapositiva de título
+
+```{css eval = FALSE, tidy = FALSE}
+
+.title-slide h1 {
+  color: #F7F8FA;
+}
+
+.title-slide h2, .title-slide h3 {
+  color: #e7e8e2; 
+  line-height: 1.5em;
+}
+
+```
+
+En este ejemplo, establecemos el mismo color para los encabezados de nivel 2 y 3 (gris) mientras que al encabezado de nivel 1 se le asigna un color diferente. Puede cambiar el interlineado si tiene encabezados largos usando line-height. El valor predeterminado es 1.0em.
+
+Asegúrese de en su archivo `.css` insertar el bloque `.title-slide` después del bloque `.inverse`; el último siempre sobrescribirá al primero.
+
+---
+# Diapositiva de título
+
+## Remover el número de la diapositiva
+
+Si no quiere que apareza la enumeración en la diapositiva de titulo, en remark.js existe una clase en especifico responsable de esta caracteristica: `remark-slide-number`. Puede ocultar este número de la siguiente manera:
+
+```{css eval = FALSE, tidy = FALSE}
+
+.title-slide .remark-slide-number {
+  display: none;
+}
+
+```
+
+---
+# Diapositiva de título
+
+## Ajustar el espacio vertical
+
+Muchos diseños de diapositivas de título utilizan bloques predefinidos con diferentes colores para el título principal, los subtítulos y la información del autor, etc. Si ingresa su información y el espacio vertical del título, el autor y la fecha no se ajustan al diseño de la diapositiva de título, tiene dos opciones para ajustar eso:
+
+- Agregar la etiqueta `<br>` html directamente en el campo de título en el encabezado YAML. Esto agregará un espacio vertical definido a su campo elegido.
+
+---
+# Diapositiva de título
+
+## Ajustar el espacio vertical
+
+Muchos diseños de diapositivas de título utilizan bloques predefinidos con diferentes colores para el título principal, los subtítulos y la información del autor, etc. 
+
+Si ingresa su información y el espacio vertical del título, el autor y la fecha no se ajustan al diseño de la diapositiva de título, tiene dos opciones para ajustar eso:
+
+- Ir al encabezado en especifico de la diapositiva de título, p. Ej. `title-slide h1{}` y cambiar los márgenes:
+
+```{css eval = FALSE, tidy = FALSE}
+
+.title-slide h1 {
+  text-shadow: none;
+  color: #F7F8FA;
+  margin-top: -70px;
+}
+
+```
+
+---
+# Diapositiva de título
+
+## Ajustar el espacio vertical
+
+Estableciendo `margin-top: -70px` se reducirá el espacio vertical del encabezado moviendolo más hacia arriba. Puede hacer esto mismo con `margin-bottom`, `margin-right` o `margin-left`.
+
+Tenga en cuenta que cambiar los margenes de un nivel de encabezado puede tener efectos sobre los otros niveles.
+
+---
+class: center, middle
+
+#Otros
+
+Bloques de código, salida a color del terminal, hipervinculos, margenes.
+
+---
+#Bloques de código
+
+Por defecto no está especificado ningún fondo para los trozos de código. Si quiere establecer el color gris que se usa generalmente, agregué las siguientes lineas a su archivo CSS:
+
+```{css eval = FALSE, tidy = FALSE}
+
+.remark-inline-code{
+  /* background: #F5F5F5; /* lighter */
+  background: #e7e8e2; /* darker */
+  border-radius: 3px;
+  padding: 4px;
+}
+
+```
+
+Puede probar con diferentes valores para `background` hasta encontrar el que mejor se ajuste con su diseño. En el ejemplo se muestran dos tipos de gris. 
+
+El argumento `border-radius` le permite controlar el redondeo de los bordes de la caja que contiene el código mientras que `padding` especifica el tamaño de dicho contenedor.
+
+.center[`Variable = "a"`]
+---
+# Salida del terminal a color
+
+Para habilitar la salida del terminal a color instale el paquete `fansi` en R y añada `options(crayon.enabled = TRUE)` en el `knitr` del chunk.
+
+###Añadir ejemplo
+---
+# Diseño de los hipervinculos
+
+Para modificar las propiedades de visualización de los links puede agregar las siguientes lineas a su archivo CSS
+
+```{css eval = FALSE, tidy = FALSE}
+
+a, a > code {
+  color: rgb(6,128,205); /*Por defecto: rgb(249, 38, 114); */
+  text-decoration: none; /* Desactiva el color de fondo de los links */
+}
+
+```
+
+**Ejemplo:**
+
+.center[[Link a Google Fonts](https://fonts.google.com/)]
+
+Por defecto, todos los links tienen color de fondo gris.
+
+---
+
+# Margenes de la diapositiva
+
+Puede modificar algunas caracteristicas de las diapositivas haciendo uso de `.remark-slide-content`.
+
+```{css eval = FALSE, tidy = FALSE}
+
+.remark-slide-content {
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+```
+---
+
+# Tamaño de la fuente de los encabezados
+
+Puede definir el tamaño del texto de los titulos con respecto al tamaño general del texto:
+
+```{css eval = FALSE, tidy = FALSE}
+
+.remark-slide-content h1 { font-size: 3em; }
+.remark-slide-content h2 { font-size: 2em; }
+.remark-slide-content h3 { font-size: 1.6em; }
+
+```
+
+`3em` significa tres veces el tamaño del texto normal.
+
+---
+
+# Tamaño de la fuente de los encabezados
+
+O definirlo de manera exacta en terminos de unidades absolutas:
+
+```{css eval = FALSE, tidy = FALSE}
+
+.remark-slide-content h1 { font-size: 30px; }
+.remark-slide-content h2 { font-size: 20px; }
+.remark-slide-content h3 { font-size: 16px; }
+
+```
+
+---
+# Diseño número de la diapositiva
+
+Usted puede editar, entre otras cosas, la ubicacion y el tamaño del indicador del número de la diapositiva. 
+
+```{css eval = FALSE, tidy = FALSE}
+
+.remark-slide-number {
+  font-size: 14pt;
+  margin-bottom: 6.6px;
+  margin-right: 10px;
+  color: rgb(6,128,205); /* azul */
+  opacity: 1; /* Por defecto: 0.5 */
+}
+
+```
+
+El cambio de posición se realiza usando los parametros de las margenes. También puede encerrar el número de la diapositiva en medio de un recuadro con un color de fondo personalizado usando el parametro `background: #e7e8e2;`.
+---
+class: center, middle
+#¡Gracias!
+
+---
+
+class: center, middle
+
+Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
+
+The chakra comes from [remark.js](https://remarkjs.com), [**knitr**](https://yihui.org/knitr/), and [R Markdown](https://rmarkdown.rstudio.com).

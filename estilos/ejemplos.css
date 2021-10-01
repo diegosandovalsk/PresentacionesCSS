@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&family=Roboto:wght@300&display=swap');
+
+
+a, a > code {
+  color: rgb(6,128,205);
+  text-decoration: none;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: normal;
+}
+
+body {
+  font-family: 'Roboto', 'Droid Serif', 'Palatino Linotype', 'Book Antiqua', Palatino, 'Microsoft YaHei', 'Songti SC', serif;
+}
+
+.duke-orange {
+  background-color: #F09905;
+}
+
+.duke-orange a, .dk_orange a > code {
+  color: rgb(6,128,205);
+  text-decoration: none;
+}
+
+.duke-orange h1, .duke-orange h2, .duke-orange h3 {
+  color: #001A57;
+  line-height: 0.8em;
+  text-shadow: 0 0 10px #666666;
+}
+
+.duke-softblue {
+  background-color: #339999;
+  color: #FFD960;
+}
+
+.duke-softblue a, .duke-softblue a > code {
+  /* color: rgb(153,50, 153); */
+  color: rgb(19,2,131);
+  text-decoration: none;
+}
+.duke-softblue h1, .duke-softblue h2, .duke-softblue h3 {
+  color: #001A57;
+  line-height: 0.8em;
+  text-shadow: 0 0 10px #728302;
+}
+
+.duke-green {
+  background-color: #728302;
+  /* color: #FFD960; */
+}
+.duke-green h1, .duke-green h2, .duke-green h3 {
+  color: #001A57;
+  line-height: 0.8em;
+  text-shadow: 0 0 10px #FFD960;
+}
+
+.duke-green a, .duke-green a > code {
+  color: rgb(19,2,131);
+  text-decoration: none;
+}
+
+.inverse {
+  background-color: #003366;
+  color: #B5B5B5;
+  text-shadow: 0 0 20px #728302;
+  /* 001A57 728302*/
+}
+
+.inverse h1, .inverse h2, .inverse h3 {
+  color: #B5B5B5;
+  line-height: 0.8em;
+}
+
+.imageTop {
+  vertical-align: top;
+}
+
+h4 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+}
+
+.large { font-size: 130% }
+
+.small { font-size: 70% }
+
+.red { color: red; }
+
+.remark-inline-code{
+  background: #e7e8e2;
+  border-radius: 3px;
+  padding: 4px;
+}
+
+.remark-slide-number {
+  font-size: 14pt;
+  margin-bottom: 6.6px;
+  margin-right: 10px;
+  color: rgb(6,128,205); /* azul */
+  opacity: 1; /* Por defecto: 0.5 */
+}
